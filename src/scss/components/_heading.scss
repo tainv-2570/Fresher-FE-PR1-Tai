@@ -1,0 +1,9 @@
+.heading {
+  @include flexbox(center, center, column);
+  margin-bottom: 2.5rem;
+  &__title {
+    font-size: 2.1rem;
+    letter-spacing: 0.2rem;
+    color: $dark-color;
+  }
+}

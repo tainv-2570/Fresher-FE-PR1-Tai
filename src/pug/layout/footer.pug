@@ -1,0 +1,50 @@
+footer.footer
+    .container
+        .footer__brands
+            img(src="./assets/images/footer-image1.jpg", alt="footer-image1")
+        ul.footer__menu
+            li.footer__menu-item
+                ul.item__info
+                    +renderList(footerLists1, "Thông tin")
+            li.footer__menu-item
+                ul.item__info
+                    +renderList(footerLists2, "Mua hàng")
+            li.footer__menu-item
+                ul.item__info
+                    li.item__info-item
+                        a(href="#" class="item__link item__link--heading") gửi email
+                    li.item__info-item
+                        p.item__link.item__link--text Gửi email cho chúng tôi để được hổ trợ
+                    li.item__info-item
+                        input(type="text", name="" placeholder="Enter your email" class="item__input")
+                        button.btn.btn--black.btn--arrow Gửi
+                    li.item__info-item
+                        i.fab.fa-twitter
+                        i.fab.fa-google-plus-g.active
+                        i.fab.fa-dribbble
+                        i.fab.fa-linkedin-in
+                        i.fas.fa-rss
+            li.footer__menu-item
+                ul.item__info
+                    li.item__info-item
+                        a(href="#" class="item__link item__link--heading") Liên hệ
+                    li.item__info-item
+                        i.fas.fa-map-marker-alt
+                        p.item__link.item__link--text Tầng 4, Tòa nhà Hanoi Group  Số 442 Đội Cấn,<br/> P. Cống Vị, Q. Ba Đình, Hà Nội
+                    li.item__info-item
+                        i.fas.fa-phone-square-alt
+                        p.item__link.item__link--text
+                            | (04) 66732332  - 
+                            i.fas.fa-phone-square-alt 
+                            | (04) 66732332 
+                    li.item__info-item
+                        i.fas.fa-phone-square-alt
+                        p.item__link.item__link--text
+                            | (04) 66732332
+                            i.fas.fa-envelope
+                            span Support@bizweb.vn
+.copyright
+    .container
+        .copyright__inner
+            p.copyright__inner-name © Copyright 2008-2014 DKT Technology JSC
+            img(src="./assets/images/footer-image2.jpg", alt="footer-image2.jpg", srcset="")

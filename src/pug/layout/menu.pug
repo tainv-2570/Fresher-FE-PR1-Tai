@@ -1,0 +1,28 @@
+nav.menu
+    .container
+        .menu__inner
+            .menu__inner-logo
+                img(src="./assets/images/logo-primary.png", alt="logo-primary", srcset="")
+            input(type="checkbox" class="menu__inner-check" id="checked")
+            label(for="checked").menu__inner-bars
+                i.fas.fa-bars
+            ul.menu__inner-list
+                each item in menu
+                    li.list__item
+                        a(href="#" class=`list__item-link ${item.link === "/do" || item.link === "/trang" ? 'list__item-link--dropmenu' : ''}`)= item.name
+                        if(item.link === "/do" || item.link === "/trang")
+                            .list__item-mega
+                                ul.mega__menu
+                                    each item in megaMenu
+                                        li.mega__menu-item
+                                            a(href="" class="item__link")= item
+                                ul.mega__menu
+                                    each item in megaMenu
+                                        li.mega__menu-item
+                                            a(href="" class="item__link")= item
+                                ul.mega__menu
+                                    each item in megaMenu
+                                        li.mega__menu-item
+                                            a(href="" class="item__link")= item
+                                .mega__image
+                                    img(src="./assets/images/home-image7.jpg", alt="home-image7", srcset="")

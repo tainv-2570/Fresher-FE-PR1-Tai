@@ -1,0 +1,33 @@
+extends ../layout/layout.pug
+include ../components/mixins
+block banner
+  .banner
+    img(src="./assets/images/banner.jpg", alt="banner", srcset="")
+block content
+  section.about
+    img(src="./assets/images/bg-left.jpg", alt="bg-left" class="about__image about__image--left")
+    img(src="./assets/images/bg-right.jpg", alt="bg-right" class="about__image about__image--right")
+    .container
+      +heading("Giới thiệu")
+      .about__content
+        p.about__content-desc
+          | Mriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer  possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui faciteorum claritatem Investigtiones demonstraverunt lectores legere me lius quod ii legunt saepius.Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putam
+        a(href="#" class="btn btn--black") Xem thêm
+      .about__product
+        img(src="./assets/images/home-image1.jpg", alt="home-image1" )
+        .about__product-content
+          .content__image
+            .content__image-border
+            img(src="./assets/images/products/14.jpg", alt="products-14")
+          .content__product
+            .content__product-title
+              h1 Rượu nho năm 1987
+              img(src="./assets/images/v-title.png", alt="v-title")
+            h1.content__product-price 300.000đ
+            a(href="#" class="btn btn--black") Add to cart
+            p.content__product-desc Một hợp chất có trong rượu vang được gọi là resveratro có khả nsadsadsaddadd
+            ul.content__product-time
+              li.time__item 334 ngày
+              li.time__item 26 giờ
+              li.time__item 60 phút
+              li.time__item 15 giây
