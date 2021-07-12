@@ -1,0 +1,48 @@
+extends ../layout/layout.pug
+block variables
+  - const title = "Liên hệ";
+  - const current = "/contact.html";
+block content
+  section.contact
+    .container
+      +breadcrumbs(detailBreadcrumbs)
+      +heading("Liên hệ", true)(class="heading--cart")
+      .row
+        .col-lg-9.order-2.order-lg-1
+          .contact__map
+            iframe(src='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15334.950531554672!2d108.178457!3d16.07909905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1626760249986!5m2!1sen!2s' width='100%' height='403' style='border:0;' allowfullscreen='' loading='lazy')
+          form.contact__form
+            .mb-4.row.required
+              +inputText("Your Name", "name", "","col-sm-3","col-sm-9",true)
+            .mb-4.row.required
+              +inputText("Your Email", "email", "","col-sm-3","col-sm-9",true,"email")
+            .mb-4.row.required
+              +inputText("Subject", "subject", "","col-sm-3","col-sm-9",true,)
+            .mb-4.row.required
+              label.col-sm-3.col-form-label(for='message') Your Massage
+              .col-sm-9
+                textarea#message.form-control
+            .mb-4.row
+              .offset-sm-3.col-sm-9
+                button.btn.btn--black Gửi
+        .col-lg-3.order-1.order-lg-2
+          .contact__info
+            .contact__info-logo
+              img(src="./assets/images/logo-primary.png", alt="logo.png")
+            ul.contact__info-us
+              li.us__address
+                i.fas.fa-map-marker-alt
+                span Tầng 4, Toà nhà Hà Nội group 442 Đội Cấn, Cống Vị, Ba Đình, Hà Nội
+              li.us__phone
+                i.fas.fa-phone-alt
+                span (04) 3786 8904
+              li.us__email
+                i.fas.fa-envelope
+                span ongketaine@gmail.com
+              li.us__social
+                p Follow us:
+                i.fab.fa-twitter
+                i.fab.fa-google-plus-g.active
+                i.fab.fa-dribbble
+                i.fab.fa-linkedin-in
+                i.fas.fa-rss

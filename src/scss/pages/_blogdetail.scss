@@ -19,7 +19,7 @@
   &-comment {
     .required .col-form-label:after {
       content: " *";
-      color: red;
+      color: $red-color;
     }
 
     .form-control {
