@@ -1,0 +1,28 @@
+.cart {
+  &__table {
+    &-input {
+      width: 3rem;
+      text-align: center;
+    }
+
+    .table thead th {
+      @include paddingY(1.5rem);
+      border-bottom: 0;
+    }
+
+    .table td, .table th {
+      text-align: center;
+      vertical-align: middle;
+      text-transform: uppercase
+    }
+  }
+
+  &__cta {
+    @include flexbox(flex-end);
+    @include paddingY(2.5rem, 7.5rem);
+    & > a {
+      margin-left: 2rem;
+    }
+  }
+
+}
