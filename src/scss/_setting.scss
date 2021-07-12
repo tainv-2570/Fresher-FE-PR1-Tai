@@ -25,6 +25,10 @@ img {
 a {
   display: block;
   text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 p {
   line-height: 1.5;
@@ -32,7 +36,9 @@ p {
 span {
   color: $primary-color;
 }
-input, select, textarea {
+input,
+select,
+textarea {
   font-family: $primary-font;
   font-weight: 400;
   font-size: 1.4rem;
