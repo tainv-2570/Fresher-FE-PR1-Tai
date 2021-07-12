@@ -1,22 +1,26 @@
 .menu {
   background-color: $dark-color;
+
   &__inner {
     @include relative;
     @include flexbox(space-between, center);
+
     @include maxWidth($grid__bp-lg) {
       flex-direction: column;
     }
+
     @include maxWidth($grid__bp-md) {
       flex-direction: row;
     }
+
     &-list {
       @include relative;
       @include flexbox;
       @include maxWidth($grid__bp-lg) {
         justify-content: space-between;
         min-width: 100%;
-        @include paddingY(2rem);
       }
+
       @include maxWidth($grid__bp-md) {
         display: none;
         min-width: 100vw;
@@ -24,77 +28,93 @@
         @include paddingX(10rem);
         @include marginX(-10rem);
         border-bottom: 1px solid $primary-color;
+        background-color: $white-color;
+        z-index: 999;
       }
+
     }
+
     .list__item {
       padding-left: 5rem;
+      
       @include maxWidth($grid__bp-xl) {
         padding-left: 3rem;
       }
+
       @include maxWidth($grid__bp-lg) {
         padding-left: 0;
       }
+
       @include maxWidth($grid__bp-md) {
         margin: 1rem 0.5rem;
       }
+      
+      &:hover .list__item-link {
+        color: $primary-color;
+      }
+
+      &:hover .list__item-mega {
+        @include flexbox(space-between);
+      }
+
+      &:hover .list__item-link--dropmenu::before {
+        display: block;
+
+        @include maxWidth($grid__bp-md) {
+          display: none;
+        }
+      }
+
       &-link {
         @include relative;
+        @include paddingY(7.4rem);
         color: $white-color;
-        @include maxWidth($grid__bp-md) {
-          color: $dark-color;
-        }
         text-transform: uppercase;
-        &:hover {
-          color: $primary-color;
-        }
-        &:focus ~ .list__item-mega {
-          @include maxWidth($grid__bp-md) {
-            @include flexbox(space-between);
-          }
-        }
-        &:hover ~ .list__item-mega {
-          @include flexbox(space-between);
-        }
-        &:hover::before {
-          display: block;
-          @include maxWidth($grid__bp-md) {
-            display: none;
-          }
-        }
+
         &--dropmenu::before {
-          @include absolute(82px, null, null, 50%);
-          @include maxWidth($grid__bp-lg) {
-            top: 30px;
-          }
-          display: none;
           content: "";
-          width: 0;
-          height: 0;
+          @include absolute(null, null, 0, 50%);
+          display: none;
           border-left: 5px solid transparent;
           border-right: 5px solid transparent;
           border-bottom: 5px solid $primary-color;
           @include css3-prefix(transform, translateX(-50%));
         }
+        
+        @include maxWidth($grid__bp-lg) {
+          @include paddingY(2rem);
+        }
+
+        @include maxWidth($grid__bp-md) {
+          @include paddingY(0);
+          color: $dark-color;
+        }
       }
+
       &-mega {
-        @include absolute(86px, 0, null, 0);
+        @include absolute(100%, null, null, 0);
         display: none;
         padding: 4rem 3rem;
         background-color: $white-color;
         border: 1px solid $primary-color;
         z-index: 999;
+
         @include maxWidth($grid__bp-lg) {
           top: 54px;
         }
+
         @include maxWidth($grid__bp-md) {
           @include relative(0);
           padding: 1.5rem 1.5rem;
           border: 0;
         }
+
         .mega__menu {
           width: calc(33.33% - 1rem);
+
           &-item {
             @include paddingY(0.5rem);
+
             &:nth-child(1) {
               text-transform: uppercase;
               a {
@@ -102,6 +122,7 @@
               }
             }
           }
+
           .item__link {
             color: $gray-color;
           }
@@ -109,6 +130,7 @@
         .mega__image {
           width: 37.5%;
         }
+
         @include maxWidth($grid__bp-md) {
           .mega__image {
             display: none;
@@ -116,24 +138,30 @@
         }
       }
     }
+
     &-logo {
       @include maxWidth($grid__bp-lg) {
         width: 10rem;
       }
+
       @include maxWidth($grid__bp-md) {
         width: 8rem;
       }
     }
+
     &-bars {
       display: none;
       font-size: 2rem;
       color: $primary-color;
+
       @include maxWidth($grid__bp-md) {
         display: block;
       }
     }
+
     &-check {
       display: none;
+
       &:checked ~ .menu__inner-list {
         @include maxWidth($grid__bp-md) {
           @include absolute(100%);

@@ -1,0 +1,48 @@
+.product__image {
+    @include relative;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        @include absolute(-3%,null,null,-23%);
+        width: 50%;
+        height: 20%;
+        background-color: $primary-color;
+        @include css3-prefix(transform, rotate(-45deg));
+    }
+
+    &::before {
+        content: "Sale";
+        @include absolute(3%, null, null, 3%);
+        font-size: 2.2rem;
+        color: $white-color;
+        @include css3-prefix(transform, rotate(-45deg));
+        z-index: 1;
+    }
+
+    &-line {
+        content: "";
+        @include absolute(-7%, null, null, -15%);
+        width: 100%;
+        height: 1%;
+        background-color: $white-color;
+        @include css3-prefix(transform, rotate(-45deg));
+        z-index: 1;
+    }
+
+    &--hot::before {
+        content: "Hot";
+    }
+
+    &--hot::after {
+        background-color: $red-color;
+    }
+
+    &--new::before {
+        content: "Mới";
+    }
+
+    &--new::after {
+        background-color: $green-color;
+    }
+}

@@ -5,8 +5,29 @@ mixin heading(title)
     .heading
         h1(class ="heading__title")= title
         img(src="./assets/images/v-heading.png", alt="v-heading")
-        
+
 mixin renderList(arr,heading)
     each item in arr
         li.list__item
             a(href="#" class=`item__link ${item === heading ? 'item__link--heading' : ''}`)= item
+
+mixin imageProduct(src)
+    .product__image(class!=attributes.class)
+        .product__image-line
+        img(src=src, alt="product14" class="product__image-main")
+        .product__image-action
+                p.action__item
+                    i.fas.fa-heart
+                    | Yêu thích
+                p.action__item
+                    i.fas.fa-signal
+                    | So sánh
+                i.fas.fa-external-link-alt
+
+mixin renderProduct(src,name,price,discount)
+    .product
+        +imageProduct(src)(class="product__image--new")
+        h1.product__name= name
+        p.product__price= `${price}đ `
+            span.product__price-discount=` ${discount}đ`
+        button.btn.btn--black add to cart

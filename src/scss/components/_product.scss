@@ -1,0 +1,46 @@
+.product {
+    width: calc(25% - 2rem);
+    @include paddingX(1rem);
+    text-align: center;
+    &:hover .product__image-action {
+        @include css3-prefix(transform, translateY(0px));
+    }
+    @include maxWidth($grid__bp-lg) {
+        width: calc(50% - 2rem);
+        margin-bottom: 5rem;
+    }
+    @include maxWidth($grid__bp-sm) {
+        width: 100%;
+    }
+    &__image {
+        @include relative;
+        margin-bottom: 2rem;
+        overflow: hidden;
+        &-action {
+            @include absolute(null,0,0,0);
+            @include flexbox(space-between, center);
+            padding: 0.5rem 1.5rem;
+            background-color: $dark-color;
+            @include css3-prefix(transform, translateY(35px));
+            transition: transform 0.2s;
+            p > i {
+                padding-right: 0.5rem;
+            }
+        }
+    }
+    &__name {
+        font-size: 1.6rem;
+        color:$dark-color;
+    }
+    &__price {
+        margin-bottom: 1.5rem;
+        font-family: $secondary-font;
+        font-size: 2.2rem;
+        color: $primary-color;
+        &-discount {
+            font-size: 1.5rem;
+            color: $gray-color;
+            text-decoration: line-through;
+        }
+    }
+}

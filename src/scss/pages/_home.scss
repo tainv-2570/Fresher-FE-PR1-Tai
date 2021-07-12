@@ -1,0 +1,142 @@
+.about {
+  @include relative;
+  @include paddingY(10rem,4rem);
+  .about__image {
+    &--left {
+      @include absolute(0, null, null, 0);
+      z-index: -1;
+      @include maxWidth($grid__bp-xl) {
+        display: none;
+      }
+    }
+    &--right {
+      @include absolute(0, 0, null, null);
+      z-index: -1;
+      @include maxWidth($grid__bp-md) {
+        display: none;
+      }
+    }
+  }
+  &__content {
+    max-width: 74.4rem;
+    margin: 0 auto;
+    margin-bottom: 10rem;
+    text-align: center;
+    &-desc {
+      margin-bottom: 3.5rem;
+      font-size: 1.6rem;
+      line-height: 1.5;
+    }
+  }
+  &__product {
+    &-content {
+      @include relative;
+      @include flexbox;
+      @include marginX(10rem);
+      margin-top: -30rem;
+      padding: 9.5rem;
+      background-color: $white-color;
+      @include maxWidth($grid__bp-xl) {
+        padding: 6.5rem;
+      }
+      @include maxWidth($grid__bp-lg) {
+        flex-direction: column;
+        & > * {
+          width: 100% !important;
+        }
+        .content__image {
+          margin-bottom: 2rem;
+        }
+      }
+      @include maxWidth($grid__bp-md) {
+        margin-top: -20rem;
+        @include marginX(5rem);
+        padding: 3.5rem;
+      }
+    }
+    .content__image{
+      width: 55%;
+    }
+    .content__product {
+      width: 45%;
+      &-title {
+        margin-bottom: 2.5rem;
+        h1 {
+          font-size: 2.5rem;
+          color: $dark-color;
+          @include maxWidth($grid__bp-sm) {
+            font-size: 2.2rem;
+          }
+        }
+      }
+      &-price {
+        margin-bottom: 3rem;
+        font-family: $secondary-font;
+        font-size: 3.4rem;
+        color: $primary-color;
+      }
+      &-desc {
+        @include marginY(1.5rem, 4rem);
+      }
+      &-time {
+        @include flexbox(null, null, row, wrap);
+        width: 265px;
+        @include maxWidth($grid__bp-sm) {
+          width: 165px;
+        }
+        font-family: $secondary-font;
+        color: $primary-color;
+        .time__item {
+          width: 50%;
+          padding: 2rem 3rem;
+          font-size: 3.4rem;
+          text-align: center;
+          border: 1px solid $primary-color;
+          @include maxWidth($grid__bp-xl) {
+            font-size: 2.6rem;
+          }
+          @include maxWidth($grid__bp-sm) {
+            font-size: 1.6rem;
+            padding: 1rem 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+.newproduct{
+  padding-bottom: 10rem;
+  &__list {
+    @include flexbox(space-between,center,null,wrap);
+    padding-top: 5rem;
+  }
+}
+.album {
+  padding-bottom: 10rem;
+  &__list {
+    @include flexbox(space-between, center, null, wrap);
+    &-item {
+      @include relative;
+      width: 25%;
+      @include maxWidth($grid__bp-lg) {
+         width: 50%;
+      }
+      @include maxWidth($grid__bp-sm) {
+        width: 100%;
+      }
+      &:hover .item__hover {
+        opacity: 1;
+      }
+      .item__hover {
+        @include absolute;
+        inset:0;
+        border: 5px solid $primary-color;
+        opacity: 0;
+        img {
+          @include absolute(50%, null, null, 50%);
+          @include css3-prefix(transform, translate(-50%, -50%));
+        }
+      }
+    }
+  }
+}
