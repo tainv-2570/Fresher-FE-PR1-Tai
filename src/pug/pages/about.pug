@@ -1,0 +1,15 @@
+extends ../layout/layout.pug
+block variables
+  - const title = "Giới thiệu";
+  - const current = "/about.html";
+block content
+  section.aboutus
+    .container
+      +breadcrumbs(detailBreadcrumbs)
+      +heading("giới thiệu", true)(class="heading--cart")
+      .aboutus__inner
+        .aboutus__image
+          img(src="./assets/images/home-image1.jpg", alt="home-image-1")
+        .aboutus__content
+          h1.aboutus__content-title Chào mừng đến với wine hourse
+          p.aboutus__content-desc= descAbout
