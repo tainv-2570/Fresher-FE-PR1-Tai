@@ -104,13 +104,26 @@ mixin pagination()
                 a.page-link(href='#' aria-label='Next')
                     i.fas.fa-angle-right
 
-mixin inputText(label,name,type)
-    label.col-sm-2.col-form-label(for= name)= label
-    .col-sm-10
-        input.form-control(type=type ? type : 'text' id=name name= name)
+mixin inputText(label ,name, value, classLabel, classInput, isEdit, type)
+    label.col-form-label(class= classLabel for= name)= label
+    div(class= classInput)
+        if (isEdit)
+            input.form-control(type=type ? type : 'text' id=name name= name value= value)
+        else
+            p= value
 
-mixin checkBox(label,name)
-    .offset-sm-2.col-sm-10
+mixin checkBox(label,name,classLabel)
+    div(class= classLabel)
         .form-check
             input.form-check-input(type= 'checkbox' id= name name= name)
             label.form-check-label(for= name)= label
+
+mixin selectBox(label,name, value, options, isEdit)
+    label.col-sm-3.col-form-label(for= name)= label
+    .col-sm-9
+        if (isEdit)
+            select#city(name= name).form-control
+                each option in options
+                    option(value= option.value)= option.label
+        else
+            p= value

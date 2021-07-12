@@ -1,0 +1,67 @@
+extends ../layout/layout.pug
+block variables
+  - const title = "Address"
+  - const current = "/address.html"
+block content
+  section.address
+    .container
+      +breadcrumbs(detailBreadcrumbs)
+      +heading("Địa chỉ", true)(class="heading--cart")
+      .row.address__content
+        .col-lg-6.order-2.order-lg-1
+          h1 Địa chỉ của bạn
+          each item in accountLists
+            form(class= (item.isEdit ? "address__form" : "address__info"))
+              .mb-4.row
+                +inputText("Tên", "lastname", item.lastName,"col-sm-3","col-sm-9",item.isEdit)
+              .mb-4.row
+                +inputText("Họ & tên đệm", "firstname", item.firstName,"col-sm-3","col-sm-9", item.isEdit)
+              .mb-4.row
+                +inputText("Công ty", "company", item.company,"col-sm-3","col-sm-9", item.isEdit)
+              .mb-4.row
+                +inputText("Địa chỉ", "address", item.address,"col-sm-3","col-sm-9", item.isEdit)
+              .mb-4.row
+                +selectBox("Thành phố","city", item.city, [{value: "hcm", label:"Hồ Chí Minh"},{value: "hcm", label:"Hà Nội"},{value: "dn", label:"Đà Nẵng"}], item.isEdit)
+              .mb-4.row
+                +selectBox("Quốc tịch","nation", item.country, [{value: "vn", label:"Việt Nam"},{value: "jp", label:"Japan"},{value: "kr", label:"orean"}], item.isEdit)
+              .mb-4.row
+                +inputText("Postal/Zip Code", "zipcode", item.postal,"col-sm-3","col-sm-9", item.isEdit)
+              .mb-4.row
+                +inputText("Phone", "phone", item.phone,"col-sm-3","col-sm-9", item.isEdit)
+              if (item.isEdit)
+                .mb-4.row
+                  +checkBox("Đặt làm địa chỉ mặc định","defaultAddress","offset-sm-3 col-sm-9")
+              .mb-4.row
+                if (item.isEdit)
+                    .offset-sm-3.col-sm-9.mb-4
+                      button.btn.btn--blue Chỉnh sửa địa chỉ
+                      button.btn.btn--black Xoá
+                else
+                    .offset-sm-8.col-sm-4
+                      a(href="#") Chỉnh sửa địa chỉ
+
+        .col-lg-6.order-1.order-lg-2
+          a(href="#" class="address__add") Thêm địa chỉ
+          form.address__form
+            .mb-4.row
+              +inputText("Tên", "lastname", "","col-sm-3","col-sm-9",true)
+            .mb-4.row
+              +inputText("Họ & tên đệm", "firstname", "","col-sm-3","col-sm-9",true)
+            .mb-4.row
+              +inputText("Công ty", "company", "","col-sm-3","col-sm-9",true)
+            .mb-4.row
+              +inputText("Địa chỉ", "address", "","col-sm-3","col-sm-9",true)
+            .mb-4.row
+              +selectBox("Thành phố","city","",[{value: "hcm", label:"Hồ Chí Minh"},{value: "hcm", label:"Hà Nội"},{value: "dn", label:"Đà Nẵng"}], true)
+            .mb-4.row
+              +selectBox("Quốc tịch","nation","",[{value: "vn", label:"Việt Nam"},{value: "jp", label:"Japan"},{value: "kr", label:"orean"},], true)
+            .mb-4.row
+              +inputText("Postal/Zip Code", "zipcode", "","col-sm-3","col-sm-9",true)
+            .mb-4.row
+              +inputText("Phone", "phone", "","col-sm-3","col-sm-9",true)
+            .mb-4.row
+              +checkBox("Đặt làm địa chỉ mặc định","defaultAddress", "offset-sm-3 col-sm-9")
+            .mb-4.row
+              .offset-sm-3.col-sm-9.mb-4
+                button.btn.btn--blue Cập nhât địa chỉ
+                button.btn.btn--black Thoát

@@ -11,20 +11,20 @@ block content
         h1 Thông tin cá nhân
         form.login__form
           .mb-5.row.required
-            +inputText("Tên trước", "firstname")
+            +inputText("Tên trước", "firstname", "","col-sm-2","col-sm-10",true)
           .mb-5.row.required
-            +inputText("Tên sau", "lastname")
+            +inputText("Tên trước", "firstname", "","col-sm-2","col-sm-10",true)
           .mb-5.row.required
-            +inputText("Email", "email", "email")
+            +inputText("Tên trước", "firstname", "","col-sm-2","col-sm-10",true,"email")
           .mb-5.row.required
-            +inputText("Password", "password", "password")
+            +inputText("Password", "password", "","col-sm-2","col-sm-10",true,"password")
           .mb-5.row.required
-            +checkBox(" Đăng ký để nhận tin" , "receivenews")
+            +checkBox(" Đăng ký để nhận tin" , "receivenews", "offset-sm-2 col-sm-10")
           h1 Thông tin đăng nhập
           .mb-5.row
-            +inputText("Mật khẩu", "password", "password")
+            +inputText("Mật khẩu", "password", "","col-sm-2","col-sm-10",true,"password")
           .mb-5.row
-            +inputText("Xác nhận mật khẩu", "confirmPassword", "password")
+            +inputText("Xác nhận mật khẩu", "password", "","col-sm-2","col-sm-10",true,"password")
           .mb-5.row
             .offset-sm-2.col-sm-10
               .register__cta
