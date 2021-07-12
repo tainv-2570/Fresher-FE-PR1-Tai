@@ -7,12 +7,11 @@
         @include absolute(-3%,null,null,-23%);
         width: 50%;
         height: 20%;
-        background-color: $primary-color;
         @include css3-prefix(transform, rotate(-45deg));
     }
 
     &::before {
-        content: "Sale";
+        content: "";
         @include absolute(3%, null, null, 3%);
         font-size: 2.2rem;
         color: $white-color;
@@ -28,6 +27,14 @@
         background-color: $white-color;
         @include css3-prefix(transform, rotate(-45deg));
         z-index: 1;
+    }
+
+    &--sale::before {
+        content: "Sale";
+    }
+
+    &--sale::after {
+        background-color: $primary-color;
     }
 
     &--hot::before {

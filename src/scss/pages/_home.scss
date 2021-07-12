@@ -1,5 +1,6 @@
 .about {
   @include relative;
+
   @include paddingY(10rem,4rem);
 
   .about__image {

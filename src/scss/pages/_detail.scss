@@ -1,0 +1,217 @@
+.detail {
+  &__product {
+    @include flexbox(space-between);
+    margin-bottom: 7rem;
+
+    @include maxWidth($grid__bp-md) {
+      margin-bottom: 3rem;
+      flex-direction: column;
+
+      & > * {
+        width: 100% !important;
+      }
+
+      &-slider {
+        margin-bottom: 7rem;
+      }
+    }
+
+    &-slider {
+      @include flexbox;
+      width: calc(60% - 1.5rem);
+      max-height: 70rem;
+      border: 1px solid $border-color;
+      overflow: hidden;
+    }
+
+    .slider__control {
+      @include flexbox(space-between, center, column);
+      @include paddingY(2.5rem);
+      width: 15%;
+      min-width: 10rem;
+      border-right: 1px solid $border-color;
+
+      &-products {
+        .products__item {
+          padding: 1.5rem;
+
+          &:hover img {
+            border: 1px solid $primary-color;
+          }
+
+          img {
+            border-bottom: 1px solid $border-color;
+          }
+        }
+      }
+    }
+
+    .slider__image {
+      width: 85%;
+      object-fit: cover;
+    }
+
+    &-info {
+      width: calc(40% - 1.5rem);
+
+      & > div {
+        margin-bottom: 2.5rem;
+      }
+    }
+
+    .info__title {
+      .product__name {
+        font-size: 2.8rem;
+      }
+
+      .product__price {
+        margin-top: 1.5rem;
+        font-size: 2.8rem;
+      }
+    }
+    .info__rating {
+      padding: 1.5rem 0;
+      border-top: 1px solid $border-color;
+      border-bottom: 1px solid $border-color;
+
+      & > span {
+        padding-left: 1rem;
+        color: $gray-color;
+      }
+    }
+
+    .info__color {
+      &-list {
+        @include flexbox;
+
+        .form-check-input {
+          display: none;
+        }
+      }
+
+      .list__item {
+        @include size(3rem);
+        margin-right: 1.5rem;
+        background-color: $primary-color;
+
+        &:hover {
+          border: 2px solid currentColor;
+        }
+
+        &--red {
+          background-color: $red-color;
+        }
+
+        &--dark {
+          background-color: $dark-color;
+        }
+      }
+    }
+
+    .info__action {
+      @include relative;
+
+      .product__image-action {
+        position: static;
+        padding: 0;
+        justify-content: flex-start;
+        transform: none;
+        background-color: $white-color;
+      }
+      .action__item {
+        padding-right: 1.5rem;
+      }
+    }
+
+    .info__sizes {
+      select {
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    .info__quantity {
+      // @include flexbox;
+      & > button,
+      input {
+        padding: 1rem 1.5rem;
+        outline: none;
+        border: 0;
+      }
+
+      &-input {
+        width: 4rem;
+      }
+
+      &-increase {
+        margin-right: 3rem;
+      }
+    }
+  }
+
+  &__review {
+    @include flexbox(space-between);
+
+    &-tab {
+      width: calc(70% - 2rem);
+
+      @include maxWidth($grid__bp-lg) {
+        width: 100%;
+      }
+
+      .nav-pills .nav-link.active,
+      .nav-pills .show > .nav-link {
+        border-radius: 0;
+        background-color: $primary-color;
+      }
+
+      .nav-link {
+        color: $gray-color;
+        font-size: 1.6rem;
+        letter-spacing: 0.2rem;
+        text-transform: uppercase;
+      }
+
+      .tab-content {
+        padding: 1rem;
+        line-height: 1.3;
+      }
+
+      @include maxWidth($grid__bp-md) {
+        .nav {
+          flex-direction: column;
+        }
+      }
+    }
+
+    &-image {
+      width: calc(30% - 2rem);
+
+      .image__wrapper {
+        @include relative;
+        padding-top: (9 / 16) * 100%;
+        overflow: hidden;
+
+        &-main {
+          @include absolute(0, null, null, 0);
+        }
+
+        &-inner {
+          @include absolute(50%, null, null, 50%);
+          @include css3-prefix(transform, translate(-50%, -50%));
+        }
+      }
+
+      @include maxWidth($grid__bp-lg) {
+        display: none;
+      }
+    }
+  }
+}
+
+.relate {
+  @include paddingY(7rem, 10rem);
+
+  .heading--relate {
+    margin-bottom: 5rem;
+  }
+}

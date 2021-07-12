@@ -2,7 +2,7 @@ mixin link(href, name)
     a(class!=attributes.class href=href)= name
 
 mixin heading(title)
-    .heading
+    .heading(class!=attributes.class)
         h1(class ="heading__title")= title
         img(src="./assets/images/v-heading.png", alt="v-heading")
 
@@ -24,10 +24,29 @@ mixin imageProduct(src)
                     | So sánh
                 i.fas.fa-external-link-alt
 
-mixin renderProduct(src,name,price,discount)
+mixin renderProduct(src,name,price,discount,className)
     .product
-        +imageProduct(src)(class="product__image--new")
+        +imageProduct(src)(class=className)
         h1.product__name= name
         p.product__price= `${price}đ `
             span.product__price-discount=` ${discount}đ`
         button.btn.btn--black add to cart
+
+mixin breadcrumbs(listBreadcrumbs)
+    ul.breadcrumbs
+        each item in listBreadcrumbs
+            li.breadcrumbs__item
+                a(href="#" class="breadcrumbs__item-link")= item
+
+mixin tabs()
+    ul#pills-tab.nav.nav-pills.mb-3(role='tablist')
+        li.nav-item(role='presentation')
+            button#pills-character-tab.nav-link.active(data-bs-toggle='pill' data-bs-target='#pills-character' type='button' role='tab' aria-controls='pills-character' aria-selected='true') Đặt điểm nổi bật
+        li.nav-item(role='presentation')
+            button#pills-info-tab.nav-link(data-bs-toggle='pill' data-bs-target='#pills-info' type='button' role='tab' aria-controls='pills-info' aria-selected='false') Thông tin sản phẩm
+        li.nav-item(role='presentation')
+            button#pills-review-tab.nav-link(data-bs-toggle='pill' data-bs-target='#pills-review' type='button' role='tab' aria-controls='pills-review' aria-selected='false') Đánh giá
+    #pills-tabContent.tab-content
+        #pills-character.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='pills-character-tab')= textDetail
+        #pills-info.tab-pane.fade(role='tabpanel' aria-labelledby='pills-info-tab')= textDetail
+        #pills-review.tab-pane.fade(role='tabpanel' aria-labelledby='pills-review-tab')= textDetail
