@@ -1,0 +1,22 @@
+extends ../layout/layout.pug
+block variables
+  - const title = "Đăng nhập"
+  - const current = "/login.html"
+block content
+  section.login
+    .container
+      +breadcrumbs(detailBreadcrumbs)
+      +heading("Đăng nhập", true)(class="heading--cart")
+      .login__content
+        h1 Khách hàng đăng nhập
+        p Nếu bạn có một tài khoản, xin vui lòng đăng nhập
+        form.login__form
+          .mb-5.row
+            +inputText("Email", "email", "email")
+          .mb-5.row
+            +inputText("Password", "password", "password")
+          .mb-5.row
+            +checkBox("Quên mật khẩu" , "remember")
+          .mb-5.row
+            .offset-sm-2.col-sm-10
+              button.btn.btn--black Đăng nhập

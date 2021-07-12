@@ -1,0 +1,140 @@
+.blog__detail {
+  padding-bottom: 10rem;
+
+  &-content {
+    .blog__item {
+      width: 100%;
+      padding-bottom: 2.5rem;
+
+      &-desc {
+        max-width: 100%;
+        height: auto;
+        font-size: 1.7rem;
+        font-style: italic;
+        -webkit-line-clamp: 999;
+      }
+    }
+  }
+
+  &-comment {
+    .required .col-form-label:after {
+      content: " *";
+      color: red;
+    }
+
+    .form-control {
+      padding: 1.5rem;
+      font-size: 1.5rem;
+      outline: none;
+    }
+
+    #comment.form-control {
+      min-height: 27rem;
+    }
+
+    .comment__list {
+      &-item {
+        margin-bottom: 1.5rem;
+      }
+
+      .item__heading {
+        @include flexbox(space-between, center);
+        padding: 1rem 1.2rem;
+        border-radius: 5px;
+        font-style: italic;
+        background-color: $default-color;
+      }
+
+      .item__content {
+        padding: 1.5rem 1.2rem;
+      }
+    }
+
+    .comment__form {
+      margin-bottom: 2.5rem;
+    }
+
+    .comment__panigation {
+      @include flexbox(flex-end);
+
+      .page-item {
+        &:last-child > a {
+          background-color: $dark-color;
+          color: $white-color;
+        }
+
+        &:first-child > a {
+          background-color: $dark-color;
+          color: $white-color;
+        }
+      }
+
+      .page-item.active {
+        .page-link {
+          color: $white-color;
+          background-color: $gray-color;
+          border-color: $gray-color;
+        }
+      }
+
+      .page-link {
+        color: $gray-color;
+        padding: 0.5rem 1.2rem;
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  &-newblog,
+  &-tags {
+    h1 {
+      margin-bottom: 3rem;
+      font-size: 1.8rem;
+    }
+  }
+
+  &-newblog {
+    .newblog__list {
+      &-item {
+        @include flexbox;
+        margin-bottom: 2.5rem;
+
+        img {
+          width: 35%;
+        }
+
+        .item__content {
+          width: 65%;
+          padding: 0 0 1rem 1rem;
+
+          h2 {
+            font-size: 1.3rem;
+            line-height: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  &-tags {
+    margin-bottom: 2.5rem;
+
+    .tags__list {
+      @include flexbox(null, center, null, wrap);
+
+      &-item {
+        padding: 0.5rem 1rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        background-color: $default-color;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $tag-color;
+          color: $white-color;
+        }
+      }
+    }
+  }
+}

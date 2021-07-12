@@ -5,6 +5,10 @@ mixin heading(title,vector)
     .heading(class!=attributes.class)
         h1(class ="heading__title")= title
         img(src=`./assets/images/v-${vector ? 'title' : 'heading'}.png`, alt="v-heading")
+        if title === "Đăng nhập"
+            a(href="./dangky.html" class="btn btn--register") Đăng ký
+        if title === "Đăng ký"
+            a(href="./dangnhap.html" class="btn btn--register") Đăng nhập
 
 mixin renderList(arr,heading)
     each item in arr
@@ -65,3 +69,48 @@ mixin productRow(item)
             p.product__price= `${item.price}đ `
         td(width="6%")
             i.fas.fa-trash-alt
+
+mixin orderRow(item)
+    tr
+        td(width="5%")
+            p= item.num
+        td(width="30%").table__col-num
+            h2= `${item.id} - ${item.date}`
+            span= item.datetime
+        td(width="17%")
+            p= item.warehouse
+        td(width="7%")
+            p= item.amount
+        td(width="13%")
+            p= `${item.total}`
+        td(width="15%")
+            p= item.status
+        td(width="13%")
+            p= item.actions
+
+mixin pagination()
+    nav(aria-label='Page navigation example')
+        ul.pagination
+            li.page-item
+                a.page-link(href='#' aria-label='Previous')
+                    i.fas.fa-angle-left
+            li.page-item.active
+                a.page-link(href='#') 1
+            li.page-item
+                a.page-link(href='#') 2
+            li.page-item
+                a.page-link(href='#') 3
+            li.page-item
+                a.page-link(href='#' aria-label='Next')
+                    i.fas.fa-angle-right
+
+mixin inputText(label,name,type)
+    label.col-sm-2.col-form-label(for= name)= label
+    .col-sm-10
+        input.form-control(type=type ? type : 'text' id=name name= name)
+
+mixin checkBox(label,name)
+    .offset-sm-2.col-sm-10
+        .form-check
+            input.form-check-input(type= 'checkbox' id= name name= name)
+            label.form-check-label(for= name)= label
