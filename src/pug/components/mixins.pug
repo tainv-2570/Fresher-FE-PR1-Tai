@@ -1,0 +1,12 @@
+mixin link(href, name)
+    a(class!=attributes.class href=href)= name
+
+mixin heading(title)
+    .heading
+        h1(class ="heading__title")= title
+        img(src="./assets/images/v-heading.png", alt="v-heading")
+        
+mixin renderList(arr,heading)
+    each item in arr
+        li.list__item
+            a(href="#" class=`item__link ${item === heading ? 'item__link--heading' : ''}`)= item

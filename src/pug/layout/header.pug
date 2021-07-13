@@ -1,0 +1,15 @@
+header.header
+    .container
+        .header__inner
+            .header__inner-user
+                label(for="user").user__icon
+                    i.fas.fa-user-circle
+            input(type="checkbox" class="header__inner-check" id="user")
+            ul.header__inner-list
+                each item in headerTops
+                    li.list__item
+                        a(href="#" class="list__item-link")= item
+            .header__inner-search
+                input(type="text", name="" placeholder="Tìm kiếm ở đây ...")
+                i(class="fas fa-search")
+            
