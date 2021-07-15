@@ -17,8 +17,7 @@ block content
         img(src="./assets/images/home-image1.jpg", alt="home-image1" )
         .about__product-content
           .content__image
-            .content__image-border
-            img(src="./assets/images/products/14.jpg", alt="products-14")
+            +imageProduct("./assets/images/products/14.jpg")
           .content__product
             .content__product-title
               h1 Rượu nho năm 1987
@@ -31,3 +30,16 @@ block content
               li.time__item 26 giờ
               li.time__item 60 phút
               li.time__item 15 giây
+  section.newproduct
+    .container
+      +heading("Sản phẩm mới")
+      .newproduct__list
+        each item in [1,2,3,4]
+          +renderProduct(`./assets/images/products/${item}.jpg`,"rượu vang đà lạt", "370.000","450.000")
+  section.album
+    ul.album__list
+      each item in albums
+        li.album__list-item
+          img(src=`./assets/images/home-image${item}.jpg`, alt=`${item}` class="item__image")
+          .item__hover
+            img(src=`./assets/images/hover1.png`, alt=`hover1`) 

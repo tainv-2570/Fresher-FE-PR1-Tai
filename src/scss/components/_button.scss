@@ -1,13 +1,18 @@
 .btn {
   @include relative;
-  font-family: $primary-font;
   display: inline-block;
   padding: 1rem 1.5rem;
+  font-family: $primary-font;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
   color: $white-color;
   background-color: $dark-color;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
+  border: 0;
   cursor: pointer;
+  transition: all 0.5s;
+}
+.btn--black:hover {
+  background-color: $primary-color;
 }
 .btn--arrow {
   padding: 0.5rem 2rem;
