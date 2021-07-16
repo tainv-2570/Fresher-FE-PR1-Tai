@@ -1,0 +1,69 @@
+extends ../layout/layout.pug
+block variables
+  - const title = "Blog Detail";
+  - const current = "/blogdetail.html";
+block content
+  section.blog__detail
+    .container
+      +breadcrumbs(detailBreadcrumbs)
+      +heading("BLOG", true)(class="heading--cart")
+      .row
+        .col-lg-3.col-md-4.order-2.order-md-1
+          .blog__detail-newblog
+            h1 Bài viết mới nhất
+            ul.newblog__list
+              each item in [1,2,3]
+                li.newblog__list-item
+                  img(src="./assets/images/blog-image2.jpg", alt="blog-image1.jpg")
+                  .item__content
+                    h2 Cách sắp xếp nội thất trong nhà
+                    p
+                      i.far.fa-calendar-alt
+                      |   12/05/2015
+          .blog__detail-tags
+            h1 Blog Tags
+            ul.tags__list
+              each item in blogTags
+                li.tags__list-item= item
+          .blog__detail-video
+            h1 LATEST video
+            iframe(width='262' height='185' src='https://www.youtube.com/embed/1XGdNCQOCSc' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+        .col-lg-9.col-md-8.order-1.order-md-2
+          .blog__detail-content
+            - const { image, author, date, comments, desc } = blogLists[0];
+            .blog__item
+                .blog__item-image
+                  img(src=`./assets/images/${image}`, alt="home-image5")
+                  i.fas.fa-link
+                h1.blog__item-title= blogLists[0].title
+                p.blog__item-info= `Đăng bởi ${author} | ${date} | ${comments.length} bình luận`
+                p.blog__item-desc= desc
+          .blog__detail-comment
+            form.comment__form
+              h1 đóng góp ý kiến
+              .mb-3.row.required
+                label.col-sm-2.col-form-label(for='name') Tên
+                .col-sm-10
+                  input#name.form-control(type='text')
+              .mb-3.row.required
+                label.col-sm-2.col-form-label(for='email') Email
+                .col-sm-10
+                  input#email.form-control(type='email')
+              .mb-3.row.required
+                label.col-sm-2.col-form-label(for='comment') Ý kiến
+                .col-sm-10
+                  textarea#comment.form-control(placeholder='Leave a comment here')
+              .mb-3.row
+                .offset-sm-2.col-sm-10
+                  button.btn.btn--default Gửi ý kiến
+            ul.comment__list
+              h1= `Bình luận (${comments.length})`
+              each item in blogLists[0].comments
+                li.comment__list-item
+                  .item__heading
+                    p= `Bình luận bởi ${item.name} |  Cách đây ${item.time} giờ`
+                    a(href="#") Trả lời
+                  .item__content
+                    p= item.comment
+            .comment__panigation
+              +pagination()

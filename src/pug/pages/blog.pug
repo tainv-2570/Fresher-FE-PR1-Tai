@@ -1,0 +1,21 @@
+extends ../layout/layout.pug
+block variables
+  - const title = "Blog";
+  - const current = "/blog.html";
+block content
+  section.blog__wrapper
+    .container
+      +breadcrumbs(detailBreadcrumbs)
+      +heading("BLOG", true)(class="heading--cart")
+      .blog__list
+        .row
+          each item in blogLists
+            .col-sm-6.col-md-4
+              .blog__item
+                .blog__item-image
+                  img(src="./assets/images/home-image10.jpg", alt="home-image5")
+                  i.fas.fa-link
+                h1.blog__item-title= item.title
+                p.blog__item-info= `Đăng bởi ${item.author} | ${item.date} | ${item.comments.length} bình luận`
+                p.blog__item-desc= item.desc
+                a(href="#" class="link link--more") Read more

@@ -1,0 +1,47 @@
+extends ../layout/layout.pug
+block variables
+  - const title = "Đăng ký"
+  - const current = "/register.html"
+block content
+  section.login
+    .container
+      +breadcrumbs(detailBreadcrumbs)
+      +heading("Đăng ký", true)(class="heading--cart")
+      .login__content
+        h1 Thông tin cá nhân
+        form.login__form
+          .mb-5.row.required
+            label.col-sm-2.col-form-label(for='firstname') Tên trước
+            .col-sm-10
+              input#firstname.form-control(type='firstname')
+          .mb-5.row.required
+            label.col-sm-2.col-form-label(for='lastname') Tên sau
+            .col-sm-10
+              input#lastname.form-control(type='lastname')
+          .mb-5.row.required
+            label.col-sm-2.col-form-label(for='email') Email
+            .col-sm-10
+              input#email.form-control(type='email')
+          .mb-5.row.required
+            label.col-sm-2.col-form-label(for='password') Password
+            .col-sm-10
+              input#password.form-control(type='password')
+          .mb-5.row
+            .offset-sm-2.col-sm-10
+              .form-check
+                input#receivenews.form-check-input(type='checkbox')
+                label.form-check-label(for='receivenews') Đăng ký để nhận tin
+          h1 Thông tin đăng nhập
+          .mb-5.row.required
+            label.col-sm-2.col-form-label(for='password') Mật khẩu
+            .col-sm-10
+              input#password.form-control(type='password')
+          .mb-5.row.required
+            label.col-sm-2.col-form-label(for='confirmPassword') Xác nhận mật khẩu
+            .col-sm-10
+              input#confirmPassword.form-control(type='password')
+          .mb-5.row
+            .offset-sm-2.col-sm-10
+              .register__cta
+                button.btn.btn--black Gửi
+                button.btn.btn--black Quay lại

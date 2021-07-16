@@ -1,0 +1,29 @@
+extends ../layout/layout.pug
+block variables
+  - const title = "Đăng nhập"
+  - const current = "/login.html"
+block content
+  section.login
+    .container
+      +breadcrumbs(detailBreadcrumbs)
+      +heading("Đăng nhập", true)(class="heading--cart")
+      .login__content
+        h1 Khách hàng đăng nhập
+        p Nếu bạn có một tài khoản, xin vui lòng đăng nhập
+        form.login__form
+          .mb-5.row.required
+            label.col-sm-2.col-form-label(for='email') Email
+            .col-sm-10
+              input#email.form-control(type='email')
+          .mb-5.row.required
+            label.col-sm-2.col-form-label(for='password') Password
+            .col-sm-10
+              input#password.form-control(type='password')
+          .mb-5.row
+            .offset-sm-2.col-sm-10
+              .form-check
+                input#remember.form-check-input(type='checkbox')
+                label.form-check-label(for='remember') Quên mật khẩu
+          .mb-5.row
+            .offset-sm-2.col-sm-10
+              button.btn.btn--black Đăng nhập

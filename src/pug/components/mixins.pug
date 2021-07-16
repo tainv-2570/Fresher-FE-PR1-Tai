@@ -5,6 +5,10 @@ mixin heading(title,vector)
     .heading(class!=attributes.class)
         h1(class ="heading__title")= title
         img(src=`./assets/images/v-${vector ? 'title' : 'heading'}.png`, alt="v-heading")
+        if title === "Đăng nhập"
+            a(href="./dangky.html" class="btn btn--register") Đăng ký
+        if title === "Đăng ký"
+            a(href="./dangnhap.html" class="btn btn--register") Đăng nhập
 
 mixin renderList(arr,heading)
     each item in arr
@@ -65,3 +69,18 @@ mixin productRow(item)
             p.product__price= `${item.price}đ `
         td(width="6%")
             i.fas.fa-trash-alt
+mixin pagination()
+    nav(aria-label='Page navigation example')
+        ul.pagination
+            li.page-item
+                a.page-link(href='#' aria-label='Previous')
+                    i.fas.fa-angle-left
+            li.page-item.active
+                a.page-link(href='#') 1
+            li.page-item
+                a.page-link(href='#') 2
+            li.page-item
+                a.page-link(href='#') 3
+            li.page-item
+                a.page-link(href='#' aria-label='Next')
+                    i.fas.fa-angle-right

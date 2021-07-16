@@ -1,0 +1,14 @@
+.blog__wrapper {
+  .blog__list {
+    padding-bottom: 5rem;
+
+    @include maxWidth($grid__bp-sm) {
+      padding-bottom: 0;
+    }
+  }
+
+  .blog__item {
+    width: auto;
+    margin-bottom: 3rem;
+  }
+}
