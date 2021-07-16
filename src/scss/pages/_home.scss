@@ -1,33 +1,41 @@
 .about {
   @include relative;
   @include paddingY(10rem,4rem);
+
   .about__image {
+
     &--left {
       @include absolute(0, null, null, 0);
       z-index: -1;
+
       @include maxWidth($grid__bp-xl) {
         display: none;
       }
     }
+
     &--right {
       @include absolute(0, 0, null, null);
       z-index: -1;
+
       @include maxWidth($grid__bp-md) {
         display: none;
       }
     }
   }
+
   &__content {
     max-width: 74.4rem;
     margin: 0 auto;
     margin-bottom: 10rem;
     text-align: center;
+
     &-desc {
       margin-bottom: 3.5rem;
       font-size: 1.6rem;
       line-height: 1.5;
     }
   }
+
   &__product {
     &-content {
       @include relative;
@@ -36,65 +44,83 @@
       margin-top: -30rem;
       padding: 9.5rem;
       background-color: $white-color;
+
       @include maxWidth($grid__bp-xl) {
         padding: 6.5rem;
       }
+
       @include maxWidth($grid__bp-lg) {
         flex-direction: column;
+
         & > * {
           width: 100% !important;
         }
+
         .content__image {
           margin-bottom: 2rem;
         }
       }
+
       @include maxWidth($grid__bp-md) {
         margin-top: -20rem;
         @include marginX(5rem);
         padding: 3.5rem;
       }
     }
+
     .content__image{
       width: 55%;
     }
+
     .content__product {
       width: 45%;
+
       &-title {
         margin-bottom: 2.5rem;
+
         h1 {
           font-size: 2.5rem;
           color: $dark-color;
+
           @include maxWidth($grid__bp-sm) {
             font-size: 2.2rem;
           }
         }
       }
+
       &-price {
         margin-bottom: 3rem;
         font-family: $secondary-font;
         font-size: 3.4rem;
         color: $primary-color;
       }
+
       &-desc {
         @include marginY(1.5rem, 4rem);
       }
+
       &-time {
         @include flexbox(null, null, row, wrap);
         width: 265px;
+
         @include maxWidth($grid__bp-sm) {
           width: 165px;
         }
+
         font-family: $secondary-font;
         color: $primary-color;
+
         .time__item {
           width: 50%;
           padding: 2rem 3rem;
           font-size: 3.4rem;
           text-align: center;
           border: 1px solid $primary-color;
+
           @include maxWidth($grid__bp-xl) {
             font-size: 2.6rem;
           }
+
           @include maxWidth($grid__bp-sm) {
             font-size: 1.6rem;
             padding: 1rem 2rem;
@@ -104,39 +130,199 @@
     }
   }
 }
+
 .newproduct{
   padding-bottom: 10rem;
+
   &__list {
     @include flexbox(space-between,center,null,wrap);
-    padding-top: 5rem;
   }
 }
+
 .album {
   padding-bottom: 10rem;
+
   &__list {
     @include flexbox(space-between, center, null, wrap);
+
     &-item {
       @include relative;
       width: 25%;
+
       @include maxWidth($grid__bp-lg) {
          width: 50%;
       }
+
       @include maxWidth($grid__bp-sm) {
         width: 100%;
       }
+
       &:hover .item__hover {
         opacity: 1;
       }
+
       .item__hover {
         @include absolute;
         inset:0;
         border: 5px solid $primary-color;
         opacity: 0;
+
         img {
           @include absolute(50%, null, null, 50%);
           @include css3-prefix(transform, translate(-50%, -50%));
         }
       }
     }
+  }
+}
+
+.blog {
+  @include paddingY(10rem,9.5rem);
+
+  &__inner {
+    @include flexbox(space-between);
+
+    &-content{
+      width: 65%;
+    }
+
+    &-customer {
+      width: 35%;
+      text-align: center;
+
+      .customer__quote {
+        img {
+          margin: 3rem auto;
+        }
+      }
+
+      .customer__comment {
+        max-width: 80%;
+        margin: 0 auto;
+      }
+
+      .customer__author {
+        &-avt {
+          @include relative;
+          @include size(10rem);
+          margin: 25px auto;
+          overflow: hidden;
+          border-radius: 2rem;
+
+          img {
+            @include absolute(10%,null,null,-10%);
+            @include css3-prefix(transform,scale(1.5));
+          }
+        }
+
+        &-name {
+          color: $dark-color
+        }
+
+        &-job {
+          font-size: 1.3rem;
+          font-style: italic;
+        }
+      }
+    }
+
+    @include maxWidth($grid__bp-md) {
+      flex-direction: column;
+
+      &-content {
+        width: 100%;
+      }
+
+      &-customer {
+        width: 100%;
+      }
+    }
+  }
+
+}
+
+.blog__list {
+  @include flexbox(space-between, null,null,wrap)
+}
+
+.blog__item {
+  width: calc(50% - 2rem);
+
+  @include maxWidth($grid__bp-md) {
+    width: 100%;
+    margin-bottom: 2.5rem
+  }
+
+  &-image {
+    @include relative;
+    width: 100%;
+    margin-bottom: 2.5rem;
+    padding-top: (9 / 16) * 100%;
+    overflow: hidden;
+
+    &:hover i {
+      @include css3-prefix(transform, translate(-50%, -50%) rotate(90deg));
+      opacity: 1;
+    }
+
+    &:hover::after {
+      @include css3-prefix(transform, rotate(-29.3deg) translateY(0));
+    }
+
+    &::after {
+      @include absolute(8%, null, null, 0);
+      @include size(200%,100%);
+      content: "";
+      background-color: rgba($white-color, 0.5);
+      transition: all 0.3s;
+      @include css3-prefix(transform, rotate(-29.3deg) translateY(90%));
+    }
+
+    i {
+      @include absolute(50%, null, null, 50%);
+      padding: 1.5rem;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      background-color: rgba($white-color, 0.9);
+      transition: all .3s;
+      transition-delay: .3s;
+      opacity: 0;
+      z-index: 99;
+      @include css3-prefix(transform, rotate(180deg) translate(-50%, -50%));
+    }
+
+    img {
+      @include absolute(0,null,null,0);
+      @include size(100%);
+    }
+  }
+
+  &-title {
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    color: $dark-color;
+  }
+
+  &-info {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color:$gray-light-color;
+  }
+
+  &-desc {
+    display: block;
+    display: -webkit-box;
+    max-width: 400px;
+    height: calc(14px * 1.5 * 3);
+    text-align: justify;
+    @include limitLine(3);
+  }
+}
+
+.link {
+  color: $gray-light-color;
+
+  &--more {
+
   }
 }

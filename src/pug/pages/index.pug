@@ -42,4 +42,43 @@ block content
         li.album__list-item
           img(src=`./assets/images/home-image${item}.jpg`, alt=`${item}` class="item__image")
           .item__hover
-            img(src=`./assets/images/hover1.png`, alt=`hover1`) 
+            img(src=`./assets/images/hover1.png`, alt=`hover1`)
+  section.seller
+    .container
+      +heading("Sản phẩm bán chạy")
+      .newproduct__list
+        each item in [1,2,3,4]
+          +renderProduct(`./assets/images/products/${item}.jpg`,"rượu vang đà lạt", "370.000","450.000")
+  section.blog
+    .container
+      .blog__inner
+        .blog__inner-content
+          +heading("tin tức & blog")
+          ul.blog__list
+            li.blog__item
+              .blog__item-image
+                img(src="./assets/images/home-image10.jpg", alt="home-image5")
+                i.fas.fa-link
+              h1.blog__item-title vang thăng long classic
+              p.blog__item-info Đăng bởi Tài ăn hại | 30/03/2021 | 60 bình luận
+              p.blog__item-desc Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên từ hoa quả với độ rượu nhẹ, bọt ga đầy trắng mịn. Vang Nổ thăng long tạo cảm giác hương phấn, êm dịu, vui tươi, sản phẩm được đóng chai dung tích 750m
+              a(href="#" class="link link--more") Read more
+            li.blog__item
+              .blog__item-image
+                img(src="./assets/images/home-image11.jpg", alt="home-image5")
+                i.fas.fa-link
+              h1.blog__item-title vang thăng long classic
+              p.blog__item-info Đăng bởi Tài ăn hại | 30/03/2021 | 60 bình luận
+              p.blog__item-desc Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên từ hoa quả với độ rượu nhẹ..
+              a(href="#" class="link link--more") Read more
+        .blog__inner-customer
+          +heading("Khách hàng")
+          .customer__quote
+            img(src="./assets/images/quote-icon.png", alt="home-image5")
+          p.customer__comment Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên từ hoa quả với độ rượu nhẹ, bọt ga đầy trắng mịn. Vang Nổ thăng long ...
+          a(href="#" class="link link--more") Read more
+          .customer__author
+            .customer__author-avt
+              img(src="./assets/images/home-image12.jpg", alt="home-image5")
+            h1.customer__author-name GIANG LT
+            .customer__author-job Graphic design
