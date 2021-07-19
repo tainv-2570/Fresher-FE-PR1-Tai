@@ -1,0 +1,83 @@
+extends ../layout/layout.pug
+include ../components/mixins
+block variables
+  - const title = "Detail"
+  - const current = "/detail.html"
+block content
+  section.detail
+    .container
+      +breadcrumbs(detailBreadcrumbs)
+      .detail__product
+        .detail__product-slider
+          .slider__control
+            .slider__control-prev
+              i.fas.fa-arrow-up
+            ul.slider__control-products
+              each item in [6,5,14,7,8]
+                li.products__item
+                  img(src=`./assets/images/products/${item}.jpg`, alt=`products-${item}`)
+            .slider__control-next
+              i.fas.fa-arrow-down
+          img(src="./assets/images/products/14.jpg", alt="products-14" class="slider__image")
+        form.detail__product-info
+          .info__title
+            h1.product__name Rượu nho năm 1987
+            img(src="./assets/images/v-title.png", alt="v-title")
+            h1.product__price 300.000đ
+          .info__rating
+              i.fas.fa-star
+              i.fas.fa-star
+              i.fas.fa-star
+              i.fas.fa-star-half-alt
+              i.far.fa-star
+              span 1 Review(S) | Add Your Review
+          .info__color
+            h3.info__color-label màu sắc
+            ul.info__color-list
+              li
+                label.list__item(for="inlineRadio1")
+                input#inlineRadio1.form-check-input(type='radio' name='color' value='yellow')
+              li
+                label.list__item.list__item--dark(for="inlineRadio2")
+                input#inlineRadio2.form-check-input(type='radio' name='color' value='black')
+              li
+                label.list__item.list__item--red(for="inlineRadio3")
+                input#inlineRadio3.form-check-input(type='radio' name='color' value='red')
+          .info__sizes
+            h3.info__sizes-label kích cỡ
+            select(name="size")
+              option(value="to") Loại to
+              option(value="nho") Loại nhỏ
+          .info__quantity
+            h3.info__quantity-label số lượng
+            button.info__quantity-decrease -
+            input(type="text" class="info__quantity-input" value="1" name="quantity")
+            button.info__quantity-increase +
+            button(type="submit" class="btn btn--black") Add to cart
+          .info__action
+            .product__image-action
+                p.action__item
+                    i.fas.fa-heart
+                    | Yêu thích
+                p.action__item
+                    i.fas.fa-signal
+                    | So sánh
+                p.action__item
+                  i.fas.fa-envelope
+                  | Email
+          .info__desc
+            h3.info__quantity-label Mô tả
+            p Một hợp chất có trong rượu vang được gọi là resveratro có khả năng làm tăng tối đa tuổi thọ. Resveratro còn có khả năng ngăn chặn mật độ ôxy hoá của protein béo.
+      .detail__review
+        .detail__review-tab
+          +tabs()
+        .detail__review-image
+          .image__wrapper
+            img(src="./assets/images/home-image7.jpg", alt="products-7" class="image__wrapper-main")
+            img(src="./assets/images/ruounho.png", alt="ruounho-7" class="image__wrapper-inner")
+  section.relate
+    .container
+      +heading("Sản phẩm liên quan")(class="heading--relate")
+      .newproduct__list
+        each item in [1,2,3,4]
+          +renderProduct(`./assets/images/products/${item}.jpg`,"rượu vang đà lạt", "370.000","450.000")
