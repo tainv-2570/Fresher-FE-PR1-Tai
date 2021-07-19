@@ -1,0 +1,27 @@
+extends ../layout/layout.pug
+block variables
+  - const title = "Giỏ hàng";
+  - const current = "/cart.html";
+block content
+  section.cart
+    .container
+      +breadcrumbs(detailBreadcrumbs)
+      +heading("Giỏ hàng", true)(class="heading--cart")
+      .cart__table
+        .table-responsive
+          table.table.table-bordered
+            thead
+              tr
+                th Ảnh
+                th Tên sản phẩm
+                th Giá
+                th Số lượng
+                th Tổng số
+                th Xoá
+            tbody
+              each item in cartLists
+                +productRow(item)
+      .cart__cta
+        a(href="#" class="btn btn--black") Tiếp tục mua hàng
+        a(href="#" class="btn btn--black") xoá
+        a(href="#" class="btn btn--black") Cập nhật
