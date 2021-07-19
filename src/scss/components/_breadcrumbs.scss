@@ -1,0 +1,20 @@
+.breadcrumbs {
+  padding: 3rem 0;
+
+  &__item {
+    display: inline-block;
+
+    &+&::before {
+    padding: 2px;
+    content: "/\00a0";
+    }
+
+    &-link {
+      display: inline;
+      color: $gray-color;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}

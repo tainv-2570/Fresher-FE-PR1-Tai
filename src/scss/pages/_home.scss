@@ -1,9 +1,9 @@
 .about {
   @include relative;
-  @include paddingY(10rem,4rem);
+
+  @include paddingY(10rem, 4rem);
 
   .about__image {
-
     &--left {
       @include absolute(0, null, null, 0);
       z-index: -1;
@@ -68,7 +68,7 @@
       }
     }
 
-    .content__image{
+    .content__image {
       width: 55%;
     }
 
@@ -131,11 +131,11 @@
   }
 }
 
-.newproduct{
+.newproduct {
   padding-bottom: 10rem;
 
   &__list {
-    @include flexbox(space-between,center,null,wrap);
+    @include flexbox(space-between, center, null, wrap);
   }
 }
 
@@ -150,7 +150,7 @@
       width: 25%;
 
       @include maxWidth($grid__bp-lg) {
-         width: 50%;
+        width: 50%;
       }
 
       @include maxWidth($grid__bp-sm) {
@@ -163,7 +163,7 @@
 
       .item__hover {
         @include absolute;
-        inset:0;
+        inset: 0;
         border: 5px solid $primary-color;
         opacity: 0;
 
@@ -177,12 +177,12 @@
 }
 
 .blog {
-  @include paddingY(10rem,9.5rem);
+  @include paddingY(10rem, 9.5rem);
 
   &__inner {
     @include flexbox(space-between);
 
-    &-content{
+    &-content {
       width: 65%;
     }
 
@@ -210,13 +210,13 @@
           border-radius: 2rem;
 
           img {
-            @include absolute(10%,null,null,-10%);
-            @include css3-prefix(transform,scale(1.5));
+            @include absolute(10%, null, null, -10%);
+            @include css3-prefix(transform, scale(1.5));
           }
         }
 
         &-name {
-          color: $dark-color
+          color: $dark-color;
         }
 
         &-job {
@@ -238,11 +238,10 @@
       }
     }
   }
-
 }
 
 .blog__list {
-  @include flexbox(space-between, null,null,wrap)
+  @include flexbox(space-between, null, null, wrap);
 }
 
 .blog__item {
@@ -250,7 +249,7 @@
 
   @include maxWidth($grid__bp-md) {
     width: 100%;
-    margin-bottom: 2.5rem
+    margin-bottom: 2.5rem;
   }
 
   &-image {
@@ -271,7 +270,7 @@
 
     &::after {
       @include absolute(8%, null, null, 0);
-      @include size(200%,100%);
+      @include size(200%, 100%);
       content: "";
       background-color: rgba($white-color, 0.5);
       transition: all 0.3s;
@@ -284,15 +283,15 @@
       border-radius: 50%;
       font-size: 1.5rem;
       background-color: rgba($white-color, 0.9);
-      transition: all .3s;
-      transition-delay: .3s;
+      transition: all 0.3s;
+      transition-delay: 0.3s;
       opacity: 0;
       z-index: 99;
       @include css3-prefix(transform, rotate(180deg) translate(-50%, -50%));
     }
 
     img {
-      @include absolute(0,null,null,0);
+      @include absolute(0, null, null, 0);
       @include size(100%);
     }
   }
@@ -306,7 +305,7 @@
   &-info {
     margin-bottom: 1rem;
     font-size: 1.2rem;
-    color:$gray-light-color;
+    color: $gray-light-color;
   }
 
   &-desc {
@@ -323,6 +322,5 @@
   color: $gray-light-color;
 
   &--more {
-
   }
 }

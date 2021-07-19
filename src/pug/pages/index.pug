@@ -1,5 +1,7 @@
 extends ../layout/layout.pug
-include ../components/mixins
+block variables
+  - const title = "Trang chủ"
+  - const current = "/"
 block banner
   .banner
     img(src="./assets/images/banner.jpg", alt="banner", srcset="")
@@ -17,7 +19,7 @@ block content
         img(src="./assets/images/home-image1.jpg", alt="home-image1" )
         .about__product-content
           .content__image
-            +imageProduct("./assets/images/products/14.jpg")
+            +imageProduct("./assets/images/products/14.jpg")(class="product__image--sale")
           .content__product
             .content__product-title
               h1 Rượu nho năm 1987
@@ -35,7 +37,7 @@ block content
       +heading("Sản phẩm mới")
       .newproduct__list
         each item in [1,2,3,4]
-          +renderProduct(`./assets/images/products/${item}.jpg`,"rượu vang đà lạt", "370.000","450.000")
+          +renderProduct(`./assets/images/products/${item}.jpg`,"rượu vang đà lạt", "370.000","450.000","product__image--new")
   section.album
     ul.album__list
       each item in albums
@@ -48,7 +50,7 @@ block content
       +heading("Sản phẩm bán chạy")
       .newproduct__list
         each item in [1,2,3,4]
-          +renderProduct(`./assets/images/products/${item}.jpg`,"rượu vang đà lạt", "370.000","450.000")
+          +renderProduct(`./assets/images/products/${item}.jpg`,"rượu vang đà lạt", "370.000","450.000","product__image--sale")
   section.blog
     .container
       .blog__inner
