@@ -69,6 +69,25 @@ mixin productRow(item)
             p.product__price= `${item.price}đ `
         td(width="6%")
             i.fas.fa-trash-alt
+
+mixin orderRow(item)
+    tr
+        td(width="5%")
+            p= item.num
+        td(width="30%").table__col-num
+            h2= `${item.id} - ${item.date}`
+            span= item.datetime
+        td(width="17%")
+            p= item.warehouse
+        td(width="7%")
+            p= item.amount
+        td(width="13%")
+            p= `${item.total}`
+        td(width="15%")
+            p= item.status
+        td(width="13%")
+            p= item.actions
+
 mixin pagination()
     nav(aria-label='Page navigation example')
         ul.pagination
