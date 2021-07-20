@@ -2,7 +2,6 @@
   @include relative;
 
   @include paddingY(10rem, 4rem);
-
   .about__image {
     &--left {
       @include absolute(0, null, null, 0);
@@ -320,7 +319,4 @@
 
 .link {
   color: $gray-light-color;
-
-  &--more {
-  }
 }
