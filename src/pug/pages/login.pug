@@ -12,11 +12,11 @@ block content
         p Nếu bạn có một tài khoản, xin vui lòng đăng nhập
         form.login__form
           .mb-5.row
-            +inputText("Email", "email", "email")
+            +inputText("Email", "email", "","col-sm-2","col-sm-10",true,"email")
           .mb-5.row
-            +inputText("Password", "password", "password")
+            +inputText("Password", "password", "","col-sm-2","col-sm-10",true,"password")
           .mb-5.row
-            +checkBox("Quên mật khẩu" , "remember")
+            +checkBox("Quên mật khẩu" , "remember", "offset-sm-2 col-sm-10")
           .mb-5.row
             .offset-sm-2.col-sm-10
               button.btn.btn--black Đăng nhập
