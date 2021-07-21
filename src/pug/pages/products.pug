@@ -1,0 +1,52 @@
+extends ../layout/layout.pug
+block variables
+  - const title = "Danh sách sản phẩm";
+  - const current = "/products.html";
+block content
+  section.products
+    .container
+      +breadcrumbs(detailBreadcrumbs)
+      img(src="./assets/images/list-image1.jpg", alt="list-image1")
+      .row.products__content
+        .col-sm-12.col-md-3.col-lg-3
+          .products__side.row
+            .col-sm-6.col-md-12
+              +heading("Danh mục sản phẩm", true)(class="heading--cart")
+              ul.products__side-categories
+                each cate in categories
+                  h1.categories__type= cate.type
+                  each item in cate.items
+                    li.products__categories-item
+                      p=`${item.label} (${item.amount})`
+            .col-sm-6.col-md-12
+              .products__side-compare
+                +heading("So sánh sản phẩm", true)(class="heading--cart")
+                p Bạn chưa có sản phẩm nào để so sánh
+              .products__side-tags
+                +heading("Tag sản phẩm", true)(class="heading--cart")
+                ul.tags__list
+                  each item in blogTags
+                    li.tags__list-item= item
+              img(src="./assets/images/list-image2.jpg", alt="list-image2" class="d-none d-lg-block")
+        .col-lg-9.col-md-9
+          .products__main
+            input#grid-view.rad(type='radio', name='radio',checked)
+            input#list-view.rad(type='radio', name='radio')
+            .products__head
+              .products__head-left
+                label(for='grid-view').grid
+                  i.fas.fa-th
+                label(for='list-view').list
+                  i.fas.fa-list
+              .products__head-right
+                +pagination()
+            .row.products__list
+              - for (var i = 0; i < 4; i++)
+                 - const { name, img, price,desc } = productList[i]
+                    .col-sm-12
+                      +renderProductRow(`./assets/images/products/${img}`,name, price, desc,"450.000")
+            .row.products__grid
+              - for (var i = 0; i < 9; i++)
+                 - const { name, img, price } = productList[i]
+                    .col-sm-6.col-md-6.col-lg-4
+                      +renderProduct(`./assets/images/products/${img}`,name, price,"450.000")

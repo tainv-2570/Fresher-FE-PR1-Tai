@@ -36,6 +36,25 @@ mixin renderProduct(src,name,price,discount,className)
             span.product__price-discount=` ${discount}đ`
         button.btn.btn--black add to cart
 
+mixin renderProductRow(src,name,price,desc,discount,className)
+    .product.row
+        .col-md-4
+            .product__image
+                +imageProduct(src)(class=className)
+        .col-md-8
+            .product__info
+                h1.product__name= name
+                p.product__price= `${price}đ `
+                p.product__desc= desc
+                button.btn.btn--black add to cart
+                span.product__info-action
+                    span.action__item
+                        i.fas.fa-heart
+                        | Yêu thích
+                    span.action__item
+                        i.fas.fa-signal
+                        | So sánh
+
 mixin breadcrumbs(listBreadcrumbs)
     ul.breadcrumbs
         each item in listBreadcrumbs
