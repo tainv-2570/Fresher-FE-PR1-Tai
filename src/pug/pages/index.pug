@@ -35,9 +35,7 @@ block content
   section.newproduct
     .container
       +heading("Sản phẩm mới")
-      .newproduct__list
-        each item in [1,2,3,4]
-          +renderProduct(`./assets/images/products/${item}.jpg`,"rượu vang đà lạt", "370.000","450.000","product__image--new")
+      +carousel("carouselNewProduct")
   section.album
     ul.album__list
       each item in albums
@@ -48,9 +46,7 @@ block content
   section.seller
     .container
       +heading("Sản phẩm bán chạy")
-      .newproduct__list
-        each item in [1,2,3,4]
-          +renderProduct(`./assets/images/products/${item}.jpg`,"rượu vang đà lạt", "370.000","450.000","product__image--sale")
+      +carousel("carouselSeller")
   section.blog.blog--home
     .container
       .blog__inner

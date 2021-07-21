@@ -8,7 +8,7 @@ header(class=`header ${current === '/' ? 'header--home' : ''}`)
             ul.header__inner-list
                 each item in headerTops
                     li.list__item
-                        a(href="#" class="list__item-link")= item
+                        a(href= item.link class="list__item-link")= item.name
             .header__inner-search
                 input(type="text", name="" placeholder="Tìm kiếm ở đây ...")
                 i(class="fas fa-search")

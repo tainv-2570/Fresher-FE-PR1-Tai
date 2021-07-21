@@ -13,7 +13,7 @@ mixin heading(title,vector)
 mixin renderList(arr,heading)
     each item in arr
         li.list__item
-            a(href="#" class=`item__link ${item === heading ? 'item__link--heading' : ''}`)= item
+            a(href="./about.html" class=`item__link ${item === heading ? 'item__link--heading' : ''}`)= item
 
 mixin imageProduct(src)
     .product__image(class!=attributes.class)
@@ -31,10 +31,11 @@ mixin imageProduct(src)
 mixin renderProduct(src,name,price,discount,className)
     .product
         +imageProduct(src)(class=className)
-        h1.product__name= name
-        p.product__price= `${price}đ `
-            span.product__price-discount=` ${discount}đ`
-        button.btn.btn--black add to cart
+        a(href="./detail.html")
+            h1.product__name= name
+            p.product__price= `${price}đ `
+                span.product__price-discount=` ${discount}đ`
+            button.btn.btn--black add to cart
 
 mixin renderProductRow(src,name,price,desc,discount,className)
     .product.row
@@ -63,12 +64,12 @@ mixin breadcrumbs(listBreadcrumbs)
 
 mixin tabs()
     ul#pills-tab.nav.nav-pills.mb-3(role='tablist')
-        li.nav-item(role='presentation')
-            button#pills-character-tab.nav-link.active(data-bs-toggle='pill' data-bs-target='#pills-character' type='button' role='tab' aria-controls='pills-character' aria-selected='true') Đặt điểm nổi bật
-        li.nav-item(role='presentation')
-            button#pills-info-tab.nav-link(data-bs-toggle='pill' data-bs-target='#pills-info' type='button' role='tab' aria-controls='pills-info' aria-selected='false') Thông tin sản phẩm
-        li.nav-item(role='presentation')
-            button#pills-review-tab.nav-link(data-bs-toggle='pill' data-bs-target='#pills-review' type='button' role='tab' aria-controls='pills-review' aria-selected='false') Đánh giá
+        li.nav-item
+            a#pills-character-tab.nav-link.active(data-toggle='pill' href='#pills-character' role='tab' aria-controls='pills-character' aria-selected='true') Đặt điểm nổi bật
+        li.nav-item
+            a#pills-info-tab.nav-link(data-toggle='pill' href='#pills-info' role='tab' aria-controls='pills-info' aria-selected='false') Thông tin sản phẩm
+        li.nav-item
+            a#pills-review-tab.nav-link(data-toggle='pill' href='#pills-review' role='tab' aria-controls='pills-review' aria-selected='false') Đánh giá
     #pills-tabContent.tab-content
         #pills-character.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='pills-character-tab')= textDetail
         #pills-info.tab-pane.fade(role='tabpanel' aria-labelledby='pills-info-tab')= textDetail
@@ -122,3 +123,21 @@ mixin pagination()
             li.page-item
                 a.page-link(href='#' aria-label='Next')
                     i.fas.fa-angle-right
+
+mixin carousel(id)
+    .carousel.slide(data-ride='carousel' id= id)
+        .carousel-inner
+          .carousel-item.active
+            .newproduct__list.w-100
+              each item in [1,2,3,4]
+                +renderProduct(`./assets/images/products/${item}.jpg`,"rượu vang đà lạt", "370.000","450.000","product__image--sale")
+          .carousel-item
+            .newproduct__list.w-100
+              each item in [1,2,3,4]
+                +renderProduct(`./assets/images/products/${item}.jpg`,"rượu vang đà lạt", "370.000","450.000","product__image--sale")
+        a.carousel-control-prev(href=`#${id}` role='button' data-slide='prev')
+          span.carousel-control-prev-icon(aria-hidden='true')
+          span.sr-only Previous
+        a.carousel-control-next(href=`#${id}` role='button' data-slide='next')
+          span.carousel-control-next-icon(aria-hidden='true')
+          span.sr-only Next

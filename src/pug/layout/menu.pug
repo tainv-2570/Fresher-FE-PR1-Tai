@@ -9,7 +9,7 @@ nav.menu
             ul.menu__inner-list
                 each item in menu
                     li.list__item
-                        a(href="#" class=`list__item-link ${item.link === "/do" || item.link === "/trang" ? 'list__item-link--dropmenu' : ''}`)= item.name
+                        a(href= item.link class=`list__item-link ${item.link === "/do" || item.link === "/trang" ? 'list__item-link--dropmenu' : ''}`)= item.name
                         if(item.link === "/do" || item.link === "/trang")
                             .list__item-mega
                                 ul.mega__menu
