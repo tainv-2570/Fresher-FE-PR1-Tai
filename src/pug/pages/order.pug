@@ -1,0 +1,46 @@
+extends ../layout/layout.pug
+block variables
+  - const title = "Đơn hàng";
+  - const current = "/order.html";
+block content
+  section.order
+    .container
+      +breadcrumbs(detailBreadcrumbs)
+      +heading("Đơn hàng", true)(class="heading--cart")
+      .row
+        .col-sm-9
+          .order__table
+            .table-responsive
+              table.table.table-bordered
+                thead.table__heading
+                    tr
+                      th(colspan="7")
+                        h1 DANH SÁCH ĐƠN HÀNG
+                        p Trạng thái Tất cả (16)   |   Đã hủy (10)   |   Chưa duyệt (0)   |   Đã duyệt (0)   |   Đã thanh toán-chờ mua hàng (0)   |    Đã mua hàng (0) Hàng đã về-chờ giao hàng (0)  |   Đã kết thúc (6)
+                thead
+                  tr
+                    th STT
+                    th Mã hoá đơn/ ngày mua hàng
+                    th Kho nhận hàng
+                    th số SP
+                    th Tổng tiền
+                    th Trạng thái
+                    th Thao tác
+                tbody
+                  each item in orderLists
+                    +orderRow(item)
+        .col-sm-3
+          .order__info
+            h1 thông tin khách hàng
+            ul.order__info-user
+              li.user__name
+                i.fas.fa-user
+                span Giang le
+                  p ongketaine@gmail.com
+              li.user__address
+                i.fas.fa-map-marker-alt
+                span Toà nhà Hà Nội group 442 Đội Cấn, Ba Đình, Hà Nội
+              li.user__phone
+                i.fas.fa-phone-alt
+                span (04) 3786 8904
+              a(href="./address.html") Chi tiết địa chỉ

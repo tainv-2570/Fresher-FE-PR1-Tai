@@ -1,0 +1,6 @@
+.register__cta {
+  @include flexbox(flex-end);
+  .btn--black {
+    margin-left: 1.5rem;
+  }
+}

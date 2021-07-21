@@ -11,17 +11,30 @@
   cursor: pointer;
   transition: all 0.5s;
 }
+
 .btn--black:hover {
   background-color: $primary-color;
 }
+
 .btn--arrow {
   padding: 0.5rem 2rem;
-  border:1px solid $dark-color;
+  border: 1px solid $dark-color;
 }
+
 .btn--arrow::after {
   content: "";
-  @include absolute(-1px,0,0,100%);
+  @include absolute(-1px, 0, 0, 100%);
   border-top: 14px solid transparent;
   border-bottom: 14px solid transparent;
   border-left: 15px solid $dark-color;
+}
+
+.btn--default {
+  background-color: $default-color;
+  color: $dark-color;
+}
+
+.btn--register {
+  @include absolute(0, 0);
+  @include paddingX(3rem);
 }

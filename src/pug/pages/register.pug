@@ -1,0 +1,32 @@
+extends ../layout/layout.pug
+block variables
+  - const title = "Đăng ký"
+  - const current = "/register.html"
+block content
+  section.login
+    .container
+      +breadcrumbs(detailBreadcrumbs)
+      +heading("Đăng ký", true)(class="heading--cart")
+      .login__content
+        h1 Thông tin cá nhân
+        form.login__form
+          .mb-5.row.required
+            +inputText("Tên trước", "firstname")
+          .mb-5.row.required
+            +inputText("Tên sau", "lastname")
+          .mb-5.row.required
+            +inputText("Email", "email", "email")
+          .mb-5.row.required
+            +inputText("Password", "password", "password")
+          .mb-5.row.required
+            +checkBox(" Đăng ký để nhận tin" , "receivenews")
+          h1 Thông tin đăng nhập
+          .mb-5.row
+            +inputText("Mật khẩu", "password", "password")
+          .mb-5.row
+            +inputText("Xác nhận mật khẩu", "confirmPassword", "password")
+          .mb-5.row
+            .offset-sm-2.col-sm-10
+              .register__cta
+                button.btn.btn--black Gửi
+                button.btn.btn--black Quay lại
