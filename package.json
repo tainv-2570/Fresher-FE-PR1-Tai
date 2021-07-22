@@ -14,5 +14,9 @@
     "gulp-concat": "^2.6.1",
     "gulp-pug": "^5.0.0",
     "gulp-sass": "^4.1.1"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "query-string": "^7.0.1"
   }
 }

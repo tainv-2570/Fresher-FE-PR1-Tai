@@ -2,6 +2,8 @@ extends ../layout/layout.pug
 block variables
   - const title = "Danh sách sản phẩm";
   - const current = "/products.html";
+block script
+  script(type= "module" src="js/products.js")
 block content
   section.products
     .container
@@ -40,13 +42,5 @@ block content
                   i.fas.fa-list
               .products__head-right
                 +pagination()
-            .row.products__list
-              - for (var i = 0; i < 4; i++)
-                 - const { name, img, price,desc } = productList[i]
-                    .col-sm-12
-                      +renderProductRow(`./assets/images/products/${img}`,name, price, desc,"450.000")
-            .row.products__grid
-              - for (var i = 0; i < 9; i++)
-                 - const { name, img, price } = productList[i]
-                    .col-sm-6.col-md-6.col-lg-4
-                      +renderProduct(`./assets/images/products/${img}`,name, price,"450.000")
+            .row.products__list#product_lists
+            .row.products__grid#product_grid

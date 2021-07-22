@@ -35,7 +35,7 @@ mixin renderProduct(src,name,price,discount,className)
             h1.product__name= name
             p.product__price= `${price}đ `
                 span.product__price-discount=` ${discount}đ`
-            button.btn.btn--black add to cart
+            button.btn.btn--black.btn--cart add to cart
 
 mixin renderProductRow(src,name,price,desc,discount,className)
     .product.row
@@ -47,7 +47,7 @@ mixin renderProductRow(src,name,price,desc,discount,className)
                 h1.product__name= name
                 p.product__price= `${price}đ `
                 p.product__desc= desc
-                button.btn.btn--black add to cart
+                button.btn.btn--black.btn--cart add to cart
                 span.product__info-action
                     span.action__item
                         i.fas.fa-heart
