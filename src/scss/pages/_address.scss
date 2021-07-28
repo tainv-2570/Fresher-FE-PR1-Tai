@@ -36,4 +36,35 @@
     vertical-align: middle;
     border-top: 1px solid $border-color;
   }
+  &__product {
+    &-list {
+      @include flexbox(center,center,column);
+      border-bottom: 1px solid $border-color;
+      .list__item {
+        @include flexbox(space-between,center);
+         margin-bottom: 1.5rem;
+        img {
+          width: 17%;
+        }
+        &-name {
+          flex:1;
+          h1 {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    &-total {
+      @include flexbox(space-between,center);
+      padding: 1rem 0;
+      p {
+        font-size: 1.8rem;
+        font-weight: 500;
+      }
+      span {
+        font-size: 1.8rem;
+        font-weight: 500;
+      }
+    }
+  }
 }

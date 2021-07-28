@@ -1,15 +1,5 @@
 const Storage = {
-  saveCart: cartItem => {
-    const foundIndex = Storage.getCart().findIndex(
-      item => item.id === cartItem.id
-    );
-
-    if (foundIndex === -1) {
-      carts = [...carts, cartItem];
-    } else {
-      carts[foundIndex].amount += 1;
-    }
-
+  saveCart: carts => {
     localStorage.setItem('carts', JSON.stringify(carts));
   },
   getCart: () => {
@@ -17,8 +7,9 @@ const Storage = {
       ? JSON.parse(localStorage.getItem('carts'))
       : [];
   },
+  removeCart: () => {
+    localStorage.removeItem('carts');
+  },
 };
 
 export default Storage;
-
-export let carts = Storage.getCart();

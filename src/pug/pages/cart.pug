@@ -2,6 +2,8 @@ extends ../layout/layout.pug
 block variables
   - const title = "Giỏ hàng";
   - const current = "/cart.html";
+block script
+  script(type= "module" src="js/cart.js")
 block content
   section.cart
     .container
@@ -18,10 +20,7 @@ block content
                 th Số lượng
                 th Tổng số
                 th Xoá
-            tbody
-              each item in cartLists
-                +productRow(item)
+            tbody.cart__table-list
       .cart__cta
-        a(href="#" class="btn btn--black") Tiếp tục mua hàng
-        a(href="#" class="btn btn--black") xoá
-        a(href="#" class="btn btn--black") Cập nhật
+        a(href="./products.html" class="btn btn--black") Tiếp tục mua hàng
+        a(href="./address.html" class="btn btn--black") Thanh toán

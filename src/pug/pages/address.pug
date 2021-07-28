@@ -1,121 +1,34 @@
 extends ../layout/layout.pug
 block variables
-  - const title = "Address"
+  - const title = "Thanh toán"
   - const current = "/address.html"
+block script
+  script(type= "module" src="js/payment.js")
 block content
   section.address
     .container
       +breadcrumbs(detailBreadcrumbs)
-      +heading("Địa chỉ", true)(class="heading--cart")
+      +heading("Thanh toán", true)(class="heading--cart")
       .row.address__content
-        .col-lg-6.order-2.order-lg-1
-          h1 Địa chỉ của bạn
-          each item in accountLists
-            if (item.isEdit)
-              form.address__form
-                .mb-4.row
-                  label.col-sm-3.col-form-label(for='lastname') Tên
-                  .col-sm-9
-                    input#lastname.form-control(type='lastname' value=item.lastName)
-                .mb-4.row
-                  label.col-sm-3.col-form-label(for='firstname') Họ &amp; tên đệm
-                  .col-sm-9
-                    input#firstname.form-control(type='firstname' value=item.firstName)
-                .mb-4.row
-                  label.col-sm-3.col-form-label(for='company') Công ty
-                  .col-sm-9
-                    input#company.form-control(type='company' value=item.company)
-                .mb-4.row
-                  label.col-sm-3.col-form-label(for='address') Địa chỉ
-                  .col-sm-9
-                    input#address.form-control(type='address' value=item.address)
-                .mb-4.row
-                  label.col-sm-3.col-form-label(for='city') Thành phố
-                  .col-sm-9
-                    select#city(name="city").form-control
-                      option(value="hcm") Hồ Chí Minh
-                      option(value="hn") Hà Nội
-                      option(value="dn") Đà Nẵng
-                .mb-4.row
-                  label.col-sm-3.col-form-label(for='nation') Quốc tịch
-                  .col-sm-9
-                    select#nation(name="nation").form-control
-                      option(value="vn") Việt Nam
-                      option(value="jp") Japan
-                      option(value="kr") Korean
-                .mb-4.row
-                  label.col-sm-3.col-form-label(for='zipcode') Postal/Zip Code
-                  .col-sm-9
-                    input#zipcode.form-control(type='zipcode' value=item.postal)
-                .mb-4.row
-                  label.col-sm-3.col-form-label(for='phone') Phone
-                  .col-sm-9
-                    input#phone.form-control(type='phone' value=item.phone)
-                .mb-4.row
-                  .offset-sm-3.col-sm-9
-                    .form-check
-                      input#defaultAddress.form-check-input(type='checkbox')
-                      label.form-check-label(for='defaultAddress') Đặt làm địa chỉ mặc định
-                .mb-4.row
-                  .offset-sm-3.col-sm-9.mb-4
-                    button.btn.btn--blue Chỉnh sửa địa chỉ
-                    button.btn.btn--black Xoá
-            else
-              .address__info
-                .mb-3.row
-                  label.col-sm-3.col-form-label(for='lastname') Tên
-                  .col-sm-9
-                    p= item.lastName
-                .mb-3.row
-                  label.col-sm-3.col-form-label(for='firstname') Họ &amp; tên đệm
-                  .col-sm-9
-                    p= item.firstName
-                .mb-3.row
-                  label.col-sm-3.col-form-label(for='company') Công ty
-                  .col-sm-9
-                    p= item.company
-                .mb-3.row
-                  label.col-sm-3.col-form-label(for='address') Địa chỉ
-                  .col-sm-9
-                    p= item.address
-                .mb-3.row
-                  label.col-sm-3.col-form-label(for='city') Thành phố
-                  .col-sm-9
-                    p= item.city
-                .mb-3.row
-                  label.col-sm-3.col-form-label(for='nation') Quốc tịch
-                  .col-sm-9
-                    p= item.country
-                .mb-3.row
-                  label.col-sm-3.col-form-label(for='zipcode') Postal/Zip Code
-                  .col-sm-9
-                    p= item.postal
-                .mb-3.row
-                  label.col-sm-3.col-form-label(for='phone') Phone
-                  .col-sm-9
-                    p= item.phone
-                .row
-                  .offset-sm-8.col-sm-4
-                    a(href="#") Chỉnh sửa địa chỉ
-        .col-lg-6.order-1.order-lg-2
-          a(href="#" class="address__add") Thêm địa chỉ
+        .col-lg-8.order-2.order-lg-1
+          h1 Thông tin thanh toán
           form.address__form
             .mb-4.row
               label.col-sm-3.col-form-label(for='lastname') Tên
               .col-sm-9
-                input#lastname.form-control(type='lastname')
+                input#lastname.form-control(type='lastname' name="lastname")
             .mb-4.row
-              label.col-sm-3.col-form-label(for='firstname') Họ &amp; tên đệm
+              label.col-sm-3.col-form-label(for='firstname' ) Họ &amp; tên đệm
               .col-sm-9
-                input#firstname.form-control(type='firstname')
+                input#firstname.form-control(type='firstname' name="firstname")
             .mb-4.row
               label.col-sm-3.col-form-label(for='company') Công ty
               .col-sm-9
-                input#company.form-control(type='company')
+                input#company.form-control(type='company' name="company")
             .mb-4.row
-              label.col-sm-3.col-form-label(for='address') Địa chỉ
+              label.col-sm-3.col-form-label(for='address' ) Địa chỉ
               .col-sm-9
-                input#address.form-control(type='address')
+                input#address.form-control(type='address' name="address")
             .mb-4.row
               label.col-sm-3.col-form-label(for='city') Thành phố
               .col-sm-9
@@ -133,17 +46,18 @@ block content
             .mb-4.row
               label.col-sm-3.col-form-label(for='zipcode') Postal/Zip Code
               .col-sm-9
-                input#zipcode.form-control(type='zipcode')
+                input#zipcode.form-control(type='zipcode' name="zipcode")
             .mb-4.row
-              label.col-sm-3.col-form-label(for='phone') Phone
+              label.col-sm-3.col-form-label(for='phone' ) Phone
               .col-sm-9
-                input#phone.form-control(type='phone')
-            .mb-4.row
-              .offset-sm-3.col-sm-9
-                .form-check
-                  input#defaultAddressUpdate.form-check-input(type='checkbox')
-                  label.form-check-label(for='defaultAddressUpdate') Đặt làm địa chỉ mặc định
-            .mb-4.row
+                input#phone.form-control(type='phone' name="phone")
+            .mb-4.mt-5.row
               .offset-sm-3.col-sm-9.mb-4
-                button.btn.btn--blue Cập nhât địa chỉ
-                button.btn.btn--black Thoát
+                button.btn.btn--blue.btn--payment(type="submit") Đặt hàng
+        .col-lg-4.order-1.order-lg-1
+          h1 Đơn hàng
+          ul.address__product-list
+
+          .address__product-total
+            p Tổng cộng
+            span.total__price

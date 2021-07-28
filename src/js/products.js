@@ -1,7 +1,8 @@
 import productApi from './api/productApi.js';
-import Storage, { carts } from './utils/storage.js';
-import { setItemValues } from './index.js';
+import Storage from './utils/storage.js';
+import { setItemValues, formatter } from './index.js';
 
+let carts = Storage.getCart();
 const productLists = document.getElementById('product_lists');
 const productGrid = document.getElementById('product_grid');
 const addBtns = document.getElementsByClassName('btn--cart');
@@ -79,7 +80,19 @@ const renderError = errors => {
 
 const addToCart = product => {
   const cartItem = { ...product, amount: 1 };
-  Storage.saveCart(cartItem);
+  const foundIndex = Storage.getCart().findIndex(
+    item => item.id === cartItem.id
+  );
+
+  if (foundIndex === -1) {
+    carts = [...carts, cartItem];
+  } else {
+    carts[foundIndex].amount += 1;
+    const total = carts[foundIndex].amount * carts[foundIndex].price * 1000;
+    carts[foundIndex].total = formatter.format(total);
+  }
+
+  Storage.saveCart(carts);
   setItemValues(carts);
 };
 
